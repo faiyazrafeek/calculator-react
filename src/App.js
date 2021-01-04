@@ -37,31 +37,44 @@ class App extends Component {
   }
 
   clearInput = () =>{
-    this.setState({ input : " " })
+    this.setState({ 
+      input : " " ,
+      previousNumber : "",
+      currentNumber : "",
+      operator : ""
+    })
   }
 
   add = () =>{
-    this.state.previousNumber = this.state.input;
-    this.setState({ input : "" });
-    this.state.operator = "plus";
+    if (!this.state.input){
+      this.state.previousNumber = this.state.input;
+      this.setState({ input : "" });
+      this.state.operator = "plus";
+    }
   }
 
   minus = () =>{
-    this.state.previousNumber = this.state.input;
-    this.setState({ input : "" });
-    this.state.operator = "minus";
+    if (!this.state.input){
+      this.state.previousNumber = this.state.input;
+      this.setState({ input : "" });
+      this.state.operator = "minus";
+    }
   }
 
   mul = () =>{
-    this.state.previousNumber = this.state.input;
-    this.setState({ input : "" });
-    this.state.operator = "mul";
+    if (!this.state.input){
+      this.state.previousNumber = this.state.input;
+      this.setState({ input : "" });
+      this.state.operator = "mul";
+    }
   }
 
   div = () =>{
-    this.state.previousNumber = this.state.input;
-    this.setState({ input : "" });
-    this.state.operator = "div";
+    if (!this.state.input){
+      this.state.previousNumber = this.state.input;
+      this.setState({ input : "" });
+      this.state.operator = "div";
+    }
   }
 
   evaluate = () =>{
@@ -90,6 +103,9 @@ class App extends Component {
         break;
 
       default:
+        this.setState({
+          input : ""
+        });
         break;
     }
   }
